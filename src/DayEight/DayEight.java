@@ -8,9 +8,9 @@ import java.util.Set;
 
 public class DayEight {
     public static void main(String[] args) {
+
         File inputFile = new File("src/DayEight/input.txt");
         ArrayList<String> instructions = new ArrayList<>();
-
         try{
             Scanner fileScanner = new Scanner(inputFile);
             while(fileScanner.hasNext()){
@@ -56,7 +56,7 @@ public class DayEight {
     public static int processPartTwo(ArrayList<String> instructions){
        for(int i = 0; i<instructions.size();i++){
            String[] ins = instructions.get(i).split(" ");
-           if(ins[0].equals("nop") || (ins[0].equals("jmp") && Integer.parseInt(ins[1]) != 0)){
+           if(ins[0].equals("jmp") || (ins[0].equals("nop") && Integer.parseInt(ins[1]) != 0)){
                ArrayList<String> modified = new ArrayList(instructions);
                switch(ins[0]){
                    case "nop" -> modified.set(i , "jmp " + ins[1]);
